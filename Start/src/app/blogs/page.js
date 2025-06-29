@@ -1,18 +1,20 @@
-'use client';
+// 'use client';
 import React from 'react';
-import { useState, useEffect } from 'react';
+// import { useState, useEffect } from 'react';
 import fetchData from '@/app/lib/postsData';
 
-function blogs() {
-  const [posts, setPosts] = useState([]);
+async function blogs() {
+  const posts = await fetchData();
 
-  useEffect(() => {
-    const fetchPosts = async () => {
-      const data = await fetchData();
-      setPosts(data);
-    };
-    fetchPosts();
-  }, []);
+  // const [posts, setPosts] = useState([]);
+
+  // useEffect(() => {
+  //   const fetchPosts = async () => {
+  //     const data = await fetchData();
+  //     setPosts(data);
+  //   };
+  //   fetchPosts();
+  // }, []);
 
   return (
     <div className="mx-8 my-1 p-1">
