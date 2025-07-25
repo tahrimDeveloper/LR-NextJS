@@ -1,0 +1,72 @@
+@import 'tailwindcss';
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@layer utilities {
+  /* TypeWritter animation */
+  .animate-typing {
+    animation: typing 5s steps(22) forwards, blink 1ms step-end infinite;
+  }
+
+  @keyframes typing {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  }
+
+  @keyframes blink {
+    50% {
+      border-color: transparent;
+    }
+  }
+
+  /* Marquee animation */
+
+  .marquee {
+    @apply w-full overflow-hidden whitespace-nowrap box-border;
+  }
+
+  .marquee-text {
+    @apply inline-block pl-[100%];
+    animation: marquee 10s linear infinite;
+  }
+
+  @keyframes marquee {
+    0% {
+      transform: translate(0, 0);
+    }
+    100% {
+      transform: translate(-100%, 0);
+    }
+  }
+
+  .animate-scroll {
+    animation: marquee 10s linear infinite;
+  }
+}
